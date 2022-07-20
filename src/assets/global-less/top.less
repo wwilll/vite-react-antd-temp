@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --bg: white;
+  --text-color: #555;
+  --link-color: #639a67;
+  --link-hover: #205d67;
+  --scrollbar-thumb: #09b6d1;
+}
+.pink-theme {
+  --bg: #ffc0cb;
+  --text-color: white;
+  --link-color: purple;
+  --link-hover: orange;
+  --scrollbar-thumb: orange;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+  background: var(--bg);
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  font-size: 28px;
+  padding-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+  padding-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+}
+
+// https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-reduced-motion
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* 渐变字体设置 */
+.gradient-text {
+  animation: Gradient-hue 4s ease infinite;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #0ba0ff);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ghost-btn {
+  border: 1px solid #c1b2b2;
+  margin-top: 30px;
+  padding: 10px 50px;
+  cursor: pointer;
+  font-size: 18px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- 测试页面自动关闭 -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.ico" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>成功</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      function wxClose(params) {
+        try {
+          WeixinJSBridge && WeixinJSBridge.call('closeWindow');
+        } catch (error) {
+          window.open('', '_parent', '');
+          window.close();
+        }
+      }
+      document.addEventListener('WeixinJSBridgeReady', wxClose, false);
+      setTimeout(function () {
+        document.body.insertAdjacentHTML('afterbegin', '<div>请点击微信左上角手动关闭此页面</div>');
+      }, 1000);
+    </script>
+  </body>
+</html>
